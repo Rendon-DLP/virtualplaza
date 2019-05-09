@@ -22,8 +22,8 @@ export default function animate () {
     scene.add( cube );
 
     floor = new THREE.Mesh(
-        new THREE.PlaneGeometry(10, 10, 10, 10),
-        new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: false})
+        new THREE.PlaneGeometry(10, 10, 2, 2),
+        new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true})
     );
 
     floor.rotation.x -= Math.PI / 2;
