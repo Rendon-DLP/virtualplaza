@@ -7,34 +7,52 @@ var geometry = new THREE.BoxGeometry( 2, 1, 3 );
 var material = new THREE.MeshBasicMaterial( { color: 0x0000ff, wireframe: true } );
 var cube = new THREE.Mesh( geometry, material );
 var keyboard = {}
+var player = { height: 1.8}
+var floor;
 
 export default function animate () {
 
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
 
-    camera.position.z = 12;
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
 
     requestAnimationFrame( animate );
     scene.add( cube );
 
+    floor = new THREE.Mesh(
+        new THREE.PlaneGeometry(10, 10, 10, 10),
+        new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: false})
+    );
+
+    floor.rotation.x -= Math.PI / 2;
+    scene.add( floor );
+
+    camera.position.z = 8;
+    camera.position.y = 1.8;
+    // camera.position.set(0, player.height, -8);
+    // camera.lookAt(new THREE.Vector3(0, player.height, 1));
+
 // KEYBOARD INPUTS
 
-    if(keyboard[37]) {
+    // W KEY
+    if(keyboard[68]) {
         camera.rotation.y -= Math.PI * 0.01;
     }
 
-    if(keyboard[38]) {
+    // S KEY
+    if(keyboard[83]) {
         camera.rotation.x -= Math.PI * 0.01;
     }
 
-    if(keyboard[39]) {
+    // A KEY
+    if(keyboard[65]) {
         camera.rotation.y += Math.PI * 0.01;
     }
 
-    if(keyboard[40]) {
+    // D KEY
+    if(keyboard[87]) {
         camera.rotation.x += Math.PI * 0.01;
     }
 
