@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import animate from './actions/animate'
+import animate from './actions/render'
 
 class App extends Component {
 
