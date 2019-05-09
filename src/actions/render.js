@@ -23,19 +23,19 @@ export default function animate () {
 // KEYBOARD INPUTS
 
     if(keyboard[37]) {
-        camera.rotation.x += Math.PI * 0.01;
+        camera.rotation.y -= Math.PI * 0.01;
+    }
+
+    if(keyboard[38]) {
+        camera.rotation.x -= Math.PI * 0.01;
     }
 
     if(keyboard[39]) {
         camera.rotation.y += Math.PI * 0.01;
     }
 
-    if(keyboard[38]) {
-        camera.rotation.y += Math.PI * 0.01;
-    }
-
     if(keyboard[40]) {
-        camera.rotation.y += Math.PI * 0.01;
+        camera.rotation.x += Math.PI * 0.01;
     }
 
     renderer.render( scene, camera );
